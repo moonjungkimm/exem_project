@@ -15,10 +15,20 @@
 	<insert id="insertDustMeasurement" parameterType="DustMeasurement">
 		INSERT INTO dust_measurement (station_code, PM10, PM2_5, measurement_time)
 		VALUES (#{station_code}, #{PM10}, #{PM2_5}, #{measurement_time});
-		
 	</insert>
 	
+	<insert id="insertAlertRecord" parameterType="AlertRecord">
+		INSERT INTO alert_record (dust_measurement_no, alert_criteria_no)
+		VALUES (#{dust_measurement_no}, #{alert_criteria_no});
+	</insert>
 	
+	<select id="readAllDustMeasurement" resultType="DustMeasurement">
+		select * from dust_measurement;
+	</select>
+	
+	<select id="readAllAlertCriteria" resultType="AlertCriteria">
+		select * from alert_criteria;
+	</select>
 	
 </mapper>
 

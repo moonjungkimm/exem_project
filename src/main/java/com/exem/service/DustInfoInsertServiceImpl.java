@@ -13,7 +13,7 @@ import com.exem.dto.DustMeasurement;
 import com.exem.dto.MeasurementStation;
 
 @Service
-public class DustServiceImpl implements DustService{
+public class DustInfoInsertServiceImpl implements DustInfoInsertService{
 
 	@Autowired
 	DustDao dustDao;
@@ -21,6 +21,7 @@ public class DustServiceImpl implements DustService{
 	@Override
 	public boolean insertDustMeasurement(List<JSONObject> list) {
 		int station_code = 0;
+		int current_station_code = 0;
 		String station_name = "";
 		String measurement_time = "";
 		int PM10 = 0;
@@ -54,13 +55,20 @@ public class DustServiceImpl implements DustService{
 				}
 				
 				
-				
 				//db의 측정소 코드와 중복 검사 후 측정소코드, 이름 저장
-				if( dustDao.checkStationCode(station_code) == 0) {
+				if( current_station_code != station_code) {
 					measurementStation.setStation_code(station_code);
 					measurementStation.setStation_name(station_name);
 					dustDao.insertMeasurementStation(measurementStation);
+					current_station_code = station_code;
 				}
+				
+//				if( dustDao.checkStationCode(station_code) == 0) {
+//					measurementStation.setStation_code(station_code);
+//					measurementStation.setStation_name(station_name);
+//					dustDao.insertMeasurementStation(measurementStation);
+//				}
+				
 				//미세먼지 측정 데이터 저장
 				dustMeasurement.setMeasurement_time(measurement_time);
 				dustMeasurement.setStation_code(station_code);

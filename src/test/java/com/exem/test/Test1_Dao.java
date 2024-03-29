@@ -1,7 +1,6 @@
 package com.exem.test;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,8 +11,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.exem.dao.DustDao;
-import com.exem.dto.MeasurementStation;
-import com.exem.service.DustService;
+import com.exem.dto.AlertCriteria;
+import com.exem.dto.DustMeasurement;
+import com.exem.service.AlertRecordService;
+import com.exem.service.DustInfoInsertService;
 import com.exem.util.DustInfo;
 
 
@@ -26,36 +27,32 @@ public class Test1_Dao {
 	@Autowired ApplicationContext context;
 	
 	@Autowired 
-	DustDao dao;
+	DustDao dustDao;
 	
 	@Autowired
-	DustService dustService;
+	DustInfoInsertService dustService;
+	@Autowired
+	AlertRecordService alertRecordService;
 		
 	DustInfo dust = new DustInfo();
 
-	@Test
-	public void testDustInfo() {
+	@Test	@Ignore
+	public void insertDustInfo() {
 		System.out.println("========================================================");
 
 		DustInfo dustInfo = new DustInfo();
 		dustService.insertDustMeasurement(dustInfo.dustInfo());
 	
-		
 	}
 	
-	@Test @Ignore
-	public void test0() {
-		System.out.println("========================================================");
-//		dust.dustInfo();
-		
-		MeasurementStation measurementStation = new MeasurementStation();
-		measurementStation.setStation_code(111121);
-		measurementStation.setStation_name("중구");
-		
-		System.out.println(dao.insertMeasurementStation(measurementStation));
-		
+	@Test	
+	public void testDustInfo() {
+		System.out.println("=================???==?=====================================");
+		List<DustMeasurement> dustMeasurements = dustDao.readAllDustMeasurement();
+		List<AlertCriteria> alertCriteria = dustDao.readAllAlertCriteria();
+		alertRecordService.insertAlertRecord(dustMeasurements, alertCriteria);
+		System.out.println("=================???=======================================");		
 	}
-	
 	
 	
 	
