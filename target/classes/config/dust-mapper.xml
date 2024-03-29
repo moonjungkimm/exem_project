@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exem.dao.DustDao">
+	<select id="checkStationCode" parameterType="int" resultType="int">
+		SELECT COUNT(station_code) FROM measurement_station WHERE station_code = #{station_code};
+	</select>
+
+	<insert id="insertMeasurementStation" parameterType="MeasurementStation" >
+		INSERT INTO measurement_station (station_code, station_name) 
+		VALUES (#{station_code}, #{station_name}); 
+	</insert>
+	
+	<insert id="insertDustMeasurement" parameterType="DustMeasurement">
+		INSERT INTO dust_measurement (station_code, PM10, PM2_5, measurement_time)
+		VALUES (#{station_code}, #{PM10}, #{PM2_5}, #{measurement_time});
+		
+	</insert>
+	
+	
+	
+</mapper>
+
+

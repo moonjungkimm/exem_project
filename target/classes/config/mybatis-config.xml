@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases> 
+	 	<typeAlias type="com.exem.dto.AlertCriteria" alias="AlertCriteria"/>
+	 	<typeAlias type="com.exem.dto.AlertRecord" alias="AlertRecord"/>
+	 	<typeAlias type="com.exem.dto.DustMeasurement" alias="DustMeasurement"/>
+	 	<typeAlias type="com.exem.dto.InspectionRecord" alias="InspectionRecord"/>
+	 	<typeAlias type="com.exem.dto.MeasurementStation" alias="MeasurementStation"/>
+	</typeAliases>
+</configuration>

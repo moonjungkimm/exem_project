@@ -51,7 +51,7 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
-			<!-- <scope>runtime</scope> -->
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -81,7 +81,7 @@
 					<artifactId>jmxri</artifactId>
 				</exclusion>
 			</exclusions>
-			<scope>runtime</scope>
+			<!-- <scope>runtime</scope> -->
 		</dependency>
 
 		<!-- @Inject -->
@@ -111,6 +111,8 @@
 		</dependency>
 
 		<!-- Test -->
+		<!-- Test -->
+		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -118,9 +120,9 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- LOMBOK -->
-		<!-- LOMBOK -->
-		<!-- LOMBOK -->
+		<!-- Lombok -->
+		<!-- Lombok -->
+		<!-- Lombok -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -128,34 +130,166 @@
 			<version>1.18.18</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- LOMBOK -->
-		<!-- LOMBOK -->
-		<!-- LOMBOK -->
 
-		<!-- SPRING-TEST -->
-		<!-- SPRING-TEST -->
-		<!-- SPRING-TEST -->
+		<!-- spring-test -->
+		<!-- spring-test -->
+		<!-- spring-test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		<!-- SPRING-TEST -->
-		<!-- SPRING-TEST -->
-		<!-- SPRING-TEST -->
+
 
 		<!-- jackson.core -->
 		<!-- jackson.core -->
 		<!-- jackson.core -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!-- -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.5</version>
 		</dependency>
-		<!-- jackson.core -->
-		<!-- jackson.core -->
-		<!-- jackson.core -->
+
+
+		<!-- JDBC -->
+		<!-- JDBC -->
+		<!-- JDBC -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.3.20.RELEASE</version>
+		</dependency>
+
+		<!-- JDBC -->
+		<!-- JDBC -->
+		<!-- JDBC -->
+
+
+		<!-- AOP -->
+		<!-- AOP -->
+		<!-- AOP -->
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.7.3</version>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.3</version>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.3.28.RELEASE</version>
+		</dependency>
+		<!-- AOP -->
+		<!-- AOP -->
+		<!-- AOP -->
+
+
+		<!-- MYBATIS -->
+		<!-- MYBATIS -->
+		<!-- MYBATIS -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.6</version>
+		</dependency>
+		<!-- MYBATIS -->
+		<!-- MYBATIS -->
+		<!-- MYBATIS -->
+
+
+
+		<!-- HikariCP -->
+		<!-- HikariCP -->
+		<!-- HikariCP -->
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.7.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>
+		<!-- HikariCP -->
+		<!-- HikariCP -->
+		<!-- HikariCP -->
+
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-core -->
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-core -->
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-core -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<dependency>      
+			<groupId>com.googlecode.json-simple</groupId>      
+			<artifactId>json-simple</artifactId>      
+			<version>1.1.1</version>     
+		</dependency>
+		
 
 	</dependencies>
 	<build>
