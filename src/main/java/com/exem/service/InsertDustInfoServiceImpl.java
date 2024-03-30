@@ -13,7 +13,7 @@ import com.exem.dto.DustMeasurement;
 import com.exem.dto.MeasurementStation;
 
 @Service
-public class DustInfoInsertServiceImpl implements DustInfoInsertService{
+public class InsertDustInfoServiceImpl implements InsertDustInfoService{
 
 	@Autowired
 	DustDao dustDao;

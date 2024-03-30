@@ -3,32 +3,45 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.exem.dao.DustDao">
-	<select id="checkStationCode" parameterType="int" resultType="int">
+	
+	<!-- db에 같은 측정소 있는지 비교 -->
+	<!-- <select id="checkStationCode" parameterType="int" resultType="int">
 		SELECT COUNT(station_code) FROM measurement_station WHERE station_code = #{station_code};
-	</select>
+	</select> -->
 
+	<!-- 측정소 코드, 이름 insert -->
 	<insert id="insertMeasurementStation" parameterType="MeasurementStation" >
 		INSERT INTO measurement_station (station_code, station_name) 
 		VALUES (#{station_code}, #{station_name}); 
 	</insert>
 	
+	<!-- 3월 미세먼지 데이터 insert -->
 	<insert id="insertDustMeasurement" parameterType="DustMeasurement">
 		INSERT INTO dust_measurement (station_code, PM10, PM2_5, measurement_time)
 		VALUES (#{station_code}, #{PM10}, #{PM2_5}, #{measurement_time});
 	</insert>
 	
+	<!-- 경보 발령 정보 insert -->
 	<insert id="insertAlertRecord" parameterType="AlertRecord">
 		INSERT INTO alert_record (dust_measurement_no, alert_criteria_no)
 		VALUES (#{dust_measurement_no}, #{alert_criteria_no});
 	</insert>
 	
+	<!-- 측정한 미세먼지 데이터 전부  -->
 	<select id="readAllDustMeasurement" resultType="DustMeasurement">
-		select * from dust_measurement;
+		SELECT * FROM dust_measurement;
 	</select>
 	
+	<!-- 경보 발령 기준 및 등급 -->
 	<select id="readAllAlertCriteria" resultType="AlertCriteria">
-		select * from alert_criteria;
+		SELECT * FROM alert_criteria;
 	</select>
+	
+	<!-- 측정소 점검 정보 insert -->
+	<insert id="insertInspectionRecord" parameterType="InspectionRecord">
+		INSERT INTO inspection_record (dust_measurement_no)
+		VALUES (#{dust_measurement_no})
+	</insert>	
 	
 </mapper>
 
