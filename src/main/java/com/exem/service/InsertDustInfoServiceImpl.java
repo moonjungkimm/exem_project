@@ -55,7 +55,7 @@ public class InsertDustInfoServiceImpl implements InsertDustInfoService{
 				}
 				
 				
-				//db의 측정소 코드와 중복 검사 후 측정소코드, 이름 저장
+				//이전 측정소 코드와 다르면(중복값이 아닌 경우) 측정소코드, 이름 저장
 				if( current_station_code != station_code) {
 					measurementStation.setStation_code(station_code);
 					measurementStation.setStation_name(station_name);
@@ -63,6 +63,7 @@ public class InsertDustInfoServiceImpl implements InsertDustInfoService{
 					current_station_code = station_code;
 				}
 				
+				//db의 측정소 코드와 중복 검사 후 측정소코드, 이름 저장
 //				if( dustDao.checkStationCode(station_code) == 0) {
 //					measurementStation.setStation_code(station_code);
 //					measurementStation.setStation_name(station_name);

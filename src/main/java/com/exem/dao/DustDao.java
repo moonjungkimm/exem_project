@@ -7,6 +7,7 @@ import com.exem.dto.AlertRecord;
 import com.exem.dto.DustMeasurement;
 import com.exem.dto.InspectionRecord;
 import com.exem.dto.MeasurementStation;
+import com.exem.dto.SelectAlertRecord;
 
 @MyDao
 public interface DustDao {
@@ -31,4 +32,5 @@ public interface DustDao {
 	//측정소 점검 정보 insert 
 	public boolean insertInspectionRecord(InspectionRecord inspectionRecord);
 	
+	public List<SelectAlertRecord> selectAlertRecord();
 }

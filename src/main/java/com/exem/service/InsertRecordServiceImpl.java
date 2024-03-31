@@ -62,7 +62,7 @@ public class InsertRecordServiceImpl implements InsertRecordService{
 					inspectionRecord.setDust_measurement_no(i);
 					dustDao.insertInspectionRecord(inspectionRecord);
 				}
-				
+					
 			}	//end for
 		
 			return true;

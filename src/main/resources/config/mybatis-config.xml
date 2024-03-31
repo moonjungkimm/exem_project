@@ -9,5 +9,6 @@
 	 	<typeAlias type="com.exem.dto.DustMeasurement" alias="DustMeasurement"/>
 	 	<typeAlias type="com.exem.dto.InspectionRecord" alias="InspectionRecord"/>
 	 	<typeAlias type="com.exem.dto.MeasurementStation" alias="MeasurementStation"/>
+	 	<typeAlias type="com.exem.dto.SelectAlertRecord" alias="SelectAlertRecord"/>
 	</typeAliases>
 </configuration>

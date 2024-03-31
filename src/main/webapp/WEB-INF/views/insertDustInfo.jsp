@@ -24,8 +24,8 @@
 <body>
 	
 <div class="d-grid gap-2">
-  <button class="btn btn-lg btn-info insertDustInfoBtn" type="button">JSON 파일 읽어와서 DB에 저장하는 버튼</button>
-  <button class="btn btn-lg btn-info insertRecordBtn" type="button">경보 발령 정보 / 측정소 점검 내역 DB에 저장하는 버튼</button>
+  <button class="btn btn-lg btn-warning insertDustInfoBtn" type="button">~~~~~~~~~~~~~~~~~~~~~~</button>
+  <button class="btn btn-lg btn-warning insertRecordBtn" type="button">경보 발령 정보 / 측정소 점검 내역 DB에 저장하는 버튼</button>
 </div>
 
 <table class="table table-hover">

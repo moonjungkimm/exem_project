@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class DustInfo {
+public class ReadDustInfo {
 	public List<JSONObject> dustInfo() {
 		System.out.println("-------------------------------moon");
 		
@@ -24,9 +25,8 @@ public class DustInfo {
 		
 		
 		try {
-			
-			FileInputStream reader = new FileInputStream("src/main/resources/config/dustInfo.json");
-			InputStreamReader isr = new InputStreamReader(reader);
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config/dustInfo.json");
+			InputStreamReader isr = new InputStreamReader(inputStream);
 			BufferedReader br = new BufferedReader(isr);
 			
 			StringBuilder sb = new StringBuilder();
@@ -40,13 +40,13 @@ public class DustInfo {
 			for(Object object : jsonArray) {
 				JSONObject jsonObject = (JSONObject)object;
 				dataList.add(jsonObject);
-				System.out.println(jsonObject);				
+//				System.out.println(jsonObject);				
 			}
 			
 			
 			br.close();
 			isr.close();
-			reader.close();
+			inputStream.close();
 			
 			
 			

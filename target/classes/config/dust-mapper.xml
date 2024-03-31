@@ -43,6 +43,22 @@
 		VALUES (#{dust_measurement_no})
 	</insert>	
 	
+	
+	<select id="selectAlertRecord" resultType="SelectAlertRecord">
+		SELECT 
+		    ar.alert_record_no, 
+		    ms.station_name as measurement_station_name, 
+		    dm.station_code as measurement_area, 
+		    ac.alert_level as alert_level, 
+		    dm.measurement_time
+		FROM 
+		    alert_record ar
+		    INNER JOIN dust_measurement dm ON ar.dust_measurement_no = dm.dust_measurement_no
+		    INNER JOIN alert_criteria ac ON ar.alert_criteria_no = ac.alert_criteria_no
+		    INNER JOIN measurement_station ms ON dm.station_code = ms.station_code
+		ORDER BY measurement_time, alert_level, measurement_station_name;
+	</select>
+	
 </mapper>
 
 
