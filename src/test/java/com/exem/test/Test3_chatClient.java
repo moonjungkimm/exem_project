@@ -8,9 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.exem.service.AlertService;
-
-
+import com.exem.service.AlarmService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class) 
@@ -20,12 +18,20 @@ public class Test3_chatClient {
 	@Autowired ApplicationContext context;
 	
 	@Autowired
-	AlertService alertService;
+	AlarmService alarmService;
 	
+	
+	@Test 	@Ignore
+    public void testAlertServer() {
+		
+      alarmService.server();
+    }
 	
 	@Test 	//@Ignore
     public void testAlertClient() {
-      alertService.client();
+		
+      alarmService.client();
+      
     }
 
 	

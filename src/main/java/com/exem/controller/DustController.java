@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.exem.dao.DustDao;
 import com.exem.dto.AlertCriteria;
 import com.exem.dto.DustMeasurement;
 import com.exem.dto.InspectionRecord;
 import com.exem.dto.SelectAlertRecord;
-import com.exem.service.AlertService;
 import com.exem.service.InsertDustInfoService;
 import com.exem.service.InsertRecordService;
 import com.exem.service.SelectRecordService;
@@ -37,8 +33,7 @@ public class DustController {
 	@Autowired
 	SelectRecordService selectRecordService;
 	
-	@Autowired
-	AlertService alertService;
+	
 	
 	@RequestMapping(value="/index.moon", method=RequestMethod.GET)
 	   public String main(Model model) {

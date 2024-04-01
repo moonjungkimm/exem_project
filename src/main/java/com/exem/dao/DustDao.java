@@ -41,4 +41,6 @@ public interface DustDao {
 	
 	//경보 발령 정보 갯수
 	public int countAlertRecord();
+
+	public List<SelectAlertRecord> selectAllAlertRecord();
 }

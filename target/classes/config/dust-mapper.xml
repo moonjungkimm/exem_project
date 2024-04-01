@@ -73,6 +73,7 @@
 	    ORDER BY measurement_time, alert_level, measurement_station_name;
 	</select>
 	
+	<!-- 측정소 점검 정보 확인 -->
 	<select id="inspectionSelectAlertRecord" resultType="InspectionRecord" parameterType="java.util.HashMap">
 	    SELECT 
 	        ir.inspection_record_no, 
