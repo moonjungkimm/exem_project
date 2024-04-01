@@ -44,21 +44,53 @@
 	</insert>	
 	
 	
-	<select id="selectAlertRecord" resultType="SelectAlertRecord">
-		SELECT 
-		    ar.alert_record_no, 
-		    ms.station_name as measurement_station_name, 
-		    dm.station_code as measurement_area, 
-		    ac.alert_level as alert_level, 
-		    dm.measurement_time
-		FROM 
-		    alert_record ar
-		    INNER JOIN dust_measurement dm ON ar.dust_measurement_no = dm.dust_measurement_no
-		    INNER JOIN alert_criteria ac ON ar.alert_criteria_no = ac.alert_criteria_no
-		    INNER JOIN measurement_station ms ON dm.station_code = ms.station_code
-		ORDER BY measurement_time, alert_level, measurement_station_name;
+	<!-- 경보 알림 데이터 DB에 있는지 없는지 check -->
+	<select id="countAlertRecord" resultType="int">
+		select count(*) from alert_record;
 	</select>
 	
+	<!-- 경보 발령 정보 확인 -->	
+	<select id="selectAlertRecord" resultType="SelectAlertRecord" parameterType="java.util.HashMap">
+	    SELECT 
+	        ar.alert_record_no, 
+	        ms.station_name as measurement_station_name, 
+	        dm.station_code as measurement_area, 
+	        ac.alert_level as alert_level, 
+	        dm.measurement_time
+	    FROM 
+	        alert_record ar
+	        INNER JOIN dust_measurement dm ON ar.dust_measurement_no = dm.dust_measurement_no
+	        INNER JOIN alert_criteria ac ON ar.alert_criteria_no = ac.alert_criteria_no
+	        INNER JOIN measurement_station ms ON dm.station_code = ms.station_code
+	    <where>
+	        <if test="station_name != '전체'">
+	            AND ms.station_name = #{station_name}
+	        </if>
+	        <if test="grade != 0">
+	            AND ac.grade = #{grade}
+	        </if>
+	    </where>
+	    ORDER BY measurement_time, alert_level, measurement_station_name;
+	</select>
+	
+	<select id="inspectionSelectAlertRecord" resultType="InspectionRecord" parameterType="java.util.HashMap">
+	    SELECT 
+	        ir.inspection_record_no, 
+	        ms.station_name as measurement_station_name, 
+	        dm.PM10,
+	        dm.PM2_5,
+	        dm.measurement_time
+	    FROM 
+	        inspection_record ir
+	        INNER JOIN dust_measurement dm ON ir.dust_measurement_no = dm.dust_measurement_no
+	        INNER JOIN measurement_station ms ON dm.station_code = ms.station_code
+	    <where>
+	        <if test="station_name != '전체'">
+	            AND ms.station_name = #{station_name}
+	        </if>
+	    </where>
+	    ORDER BY measurement_time, measurement_station_name;
+	</select>
 </mapper>
 
 

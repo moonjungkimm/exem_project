@@ -8,6 +8,6 @@ import com.exem.dto.DustMeasurement;
 public interface InsertRecordService {
 		
 	//경보 발령 정보 insert
-	public boolean insertAlertRecord(List<DustMeasurement> dustMeasurements, List<AlertCriteria> alertCriteria);
+	public int insertAlertRecord(List<DustMeasurement> dustMeasurements, List<AlertCriteria> alertCriteria);
 		
 }

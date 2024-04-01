@@ -1,6 +1,7 @@
 package com.exem.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.exem.dto.AlertCriteria;
 import com.exem.dto.AlertRecord;
@@ -32,5 +33,12 @@ public interface DustDao {
 	//측정소 점검 정보 insert 
 	public int insertInspectionRecord(InspectionRecord inspectionRecord);
 	
-	public List<SelectAlertRecord> selectAlertRecord();
+	//정보 발령 정보 List
+	public List<SelectAlertRecord> selectAlertRecord(Map<String, Object> para);
+	
+	//측정소 점검 정보 List
+	public List<InspectionRecord> inspectionSelectAlertRecord(Map<String, Object> para);
+	
+	//경보 발령 정보 갯수
+	public int countAlertRecord();
 }
