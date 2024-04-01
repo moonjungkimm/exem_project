@@ -21,8 +21,7 @@
 <body>
 	
 <div class="d-grid gap-2">
-  <p>성공!</p>
-  <button class="btn btn-lg btn-warning insertRecordBtn" type="button">경보 발령 정보 / 측정소 점검 내역 DB에 저장하는 버튼</button>
+  <p>Insert Record 성공!</p>
 </div>
 
 
@@ -30,14 +29,7 @@
 
 </body>
 <script>
-$(function(){
-	var insertRecordBtn = $('.insertRecordBtn');
 	
-	insertRecordBtn.click(function(){
-		location.href="insertRecord.moon";
-	})
-			
-})
 </script>
 
 </html>

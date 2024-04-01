@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,13 +39,17 @@ public class DustController {
 	
 	@RequestMapping(value="/index.moon", method=RequestMethod.GET)
 	   public String main(Model model) {
-		   return "/home";
+		   return "home";
 	 }
 	
 	@RequestMapping(value="/insertDustInfo.moon", method = RequestMethod.GET)
 	public String insertDustInfo(ReadDustInfo dustInfo, Model model) {
-		if(dustService.insertDustMeasurement(dustInfo.dustInfo()) == true) {
-			model.addAttribute("result", "success");
+		int result = dustService.insertDustMeasurement(dustInfo.dustInfo());
+		
+		if(result == 1) {
+			model.addAttribute("result", "dataInsertSuccess");
+		}else if(result == 2){
+			model.addAttribute("result", "dataExist");
 		}else {
 			model.addAttribute("result", "fail");
 		}
@@ -51,7 +57,6 @@ public class DustController {
 	}
 	
 	@RequestMapping(value="/insertRecord.moon", method = RequestMethod.GET)
-	@ResponseBody
 	public String insertRecord(Model model) {
 		//3월 미세먼지 전체 전체 data
 		List<DustMeasurement> dustMeasurements = selectRecordService.readAllDustMeasurement();
@@ -59,13 +64,14 @@ public class DustController {
 		List<AlertCriteria> alertCriteria = selectRecordService.readAllAlertCriteria();
 		
 		if(insertRecordService.insertAlertRecord(dustMeasurements,alertCriteria) == true){
+			
 			model.addAttribute("result", "success");
 		}else {
 			model.addAttribute("result", "fail");
 		}
 		
 		
-		return "insertDustInfo";
+		return "insertRecord";
 	}
 	
 }

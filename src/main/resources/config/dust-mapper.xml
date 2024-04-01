@@ -5,9 +5,9 @@
 <mapper namespace="com.exem.dao.DustDao">
 	
 	<!-- db에 같은 측정소 있는지 비교 -->
-	<!-- <select id="checkStationCode" parameterType="int" resultType="int">
-		SELECT COUNT(station_code) FROM measurement_station WHERE station_code = #{station_code};
-	</select> -->
+	<select id="checkStationCode" parameterType="int" resultType="int">
+		SELECT COUNT(station_code) FROM measurement_station;
+	</select>
 
 	<!-- 측정소 코드, 이름 insert -->
 	<insert id="insertMeasurementStation" parameterType="MeasurementStation" >
